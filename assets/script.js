@@ -51,3 +51,5 @@ function beginQuiz() {
 
     document.querySelector(".view-score").addEventListener("click", viewHighScore);
 }
+
+beginQuiz();
