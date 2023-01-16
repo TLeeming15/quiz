@@ -52,4 +52,77 @@ function beginQuiz() {
     document.querySelector(".view-score").addEventListener("click", viewHighScore);
 }
 
+function renderQuiz(){
+    var removeAll = container;
+    while (removeAll.hasChildNodes()){
+        removeAll.removeChild(removeAll.firstChild);
+    };
+
+    if (index < allQuestions.length) {
+        var quizAppear = document.createElement("div");
+        quizAppear.classList.add("quiz");
+        container.appendChild(quizAppear);
+
+        var quizQuestion = document.createElement ("h1");
+        quizQuestion.classList.add("title");
+        quizQuestion.textContent = allQuestions [index].question;
+        quizAppear.appendChild(quizQuestion);
+
+        var userOptions = allQuestions[index].options;
+        for  (var x in userOptions) {
+            var quizOption = document.createElement("button");
+            quizOption.classList.add("btn", "btn-answer");
+            if (x === allQuestions[index].answer){
+                quizOption.setAttribute("check", "correct");
+            }
+            quizOption.textContent = userOptions [x];
+            quizAppear.appendChild(quizOption);
+        }
+
+        index++;
+
+        bottom.style.visibility= "visible";
+
+        document.querySelector(".quiz").addEventListener("click", checkOutcome);
+        
+    }
+    else {
+        clearInterval(timerInterval);
+        var done = document.createElement("h2");
+        done.classList.add ("title");
+        done.textContent = "All done!";
+        container.appendChild(done);
+
+        var sum = document.createElement("p");
+        sum.classList.add("text");
+        sum.textContent = "Your final score is " + mark + " !";
+        container.appendChild(sum);
+
+        var form = document.createElement("form");
+        form.classList.add = ("form");
+        container.appendChild (form);
+
+        var label = document.createElement ("label");
+        label.classList.add("text");
+        label.setAttribute("for", "name");
+        label.textContent = "Enter initials:";
+        form.appendChild(label);
+
+        var input = document.createElement("input");
+        input.classList.add("text");
+        input.setAttribute("type", "text");
+        input.setAttribute("name", "name");
+        input.setAttribute("id", "name");
+        input.setAttribute("placeholder", "name");
+        form.appendChild(input); 
+
+        var submit = document.createElement("button");
+        submit.classList.add("btn", "btn-submit");
+        submit.textContent = "Submit";
+        form.appendChild(submit)
+
+        document.querySelector(".btn-submit").addEventListener("click", recordHighScore);
+    }
+}
+
 beginQuiz();
