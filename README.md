@@ -10,11 +10,10 @@ This is an online multiple choice quiz about Javascript. There is a bare minimum
 SO THAT I can create a strong password that provides greater security
 
 ## Problems Solve
-This website uses Javascript and DOM manipulation to present the user with a quiz that will test their knowledge of Javascript. The acceptanec criteria that the website completes are as follows:
 
 This application provides Javascript beginners an opportunity to test their knowledge of the language. The acceptanec criteria that the website completes are as follows:
 
-# GIVEN I am taking a code quiz
+* GIVEN I am taking a code quiz
 * WHEN I click the start button
 * THEN a timer starts and I am presented with a question
 * WHEN I answer a question
@@ -32,15 +31,12 @@ This application provides Javascript beginners an opportunity to test their know
 
 The following images show the completed website. You can visit the site by clicking [here.]()
 
-<img src="assets/" alt="Prompt for how many characters would you like the password to be."/>
-
 <img src="assets/images/start-screen.png" alt="Introduction of the quiz"/>
 
 <img src="assets/images/question-screen.png" alt="Quiz question screen"/>
 
-<img src="assets/images/end-screen" alt="End of quiz screen"/>
+<img src="assets/images/end-screen.png" alt="End of quiz screen"/>
 
- 
 
 ## Installation
 
