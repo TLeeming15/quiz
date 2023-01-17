@@ -29,7 +29,7 @@ This application provides Javascript beginners an opportunity to test their know
 
 ## Usage
 
-The following images show the completed website. You can visit the site by clicking [here.]()
+The following images show the completed website. You can visit the site by clicking [here.](https://tleeming15.github.io/quiz/?name=)
 
 <img src="assets/images/start-screen.png" alt="Introduction of the quiz"/>
 
