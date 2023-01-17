@@ -129,7 +129,7 @@ function renderQuiz(){
         clearInterval(timerInterval);
         var done = document.createElement("h2");
         done.classList.add ("title");
-        done.textContent = "All done!";
+        done.textContent = "Congratulations! I think you could do better though!";
         container.appendChild(done);
 
         var sum = document.createElement("p");
@@ -209,34 +209,34 @@ function checkOutcome(event){
     }, 1000);
 }
 
-// function viewHighScore(){
-//     var removeTop = top;
-//     while (removeTop.hasChildNodes()){
-//         removeTop.removeChild(removeTop.firstChild);
-//     }
-//     var removeQuiz = container;
-//     while (removeQuiz.hasChildNodes()){
-//         removeQuiz.removeChild(removeQuiz.firstChild);
-//     }
-//     var highScoresHead = document.createElement("h1");
-//     highScoresHead.classList.add("quizQuest");
-//     highScoresHead.textContent = "High Scores";
-//     container.appendChild(highScoresHead);
+function viewHighScore(){
+    var removeTop = top;
+    while (removeTop.hasChildNodes()){
+        removeTop.removeChild(removeTop.firstChild);
+    }
+    var removeQuiz = container;
+    while (removeQuiz.hasChildNodes()){
+        removeQuiz.removeChild(removeQuiz.firstChild);
+    }
+    var highScoresHead = document.createElement("h1");
+    highScoresHead.classList.add("quizQuest");
+    highScoresHead.textContent = "High Scores";
+    container.appendChild(highScoresHead);
 
-//     loadData();
+    loadData();
 
-//     var goBack = document.createElement("button");
-//     goBack.classList.add("btn", "btn-goBack");
-//     goBack.textContent = "Go Back";
-//     container.appendChild(goBack);
+    var goBack = document.createElement("button");
+    goBack.classList.add("btn", "btn-goBack");
+    goBack.textContent = "Go Back";
+    container.appendChild(goBack);
 
-//     var clear = document.createElement("button");
-//     clear.classList.add("btn", "btn-clear");
-//     clear.textContent = "Clear High Scores";
-//     container.appendChild(clear);
+    var clear = document.createElement("button");
+    clear.classList.add("btn", "btn-clear");
+    clear.textContent = "Clear High Scores";
+    container.appendChild(clear);
 
-//     document.querySelector(".btn-goBack").addEventListener("click", start);
-//     document.querySelector(".btn-clear").addEventListener("click", clearHistory);
+    document.querySelector(".btn-goBack").addEventListener("click", start);
+    document.querySelector(".btn-clear").addEventListener("click", clearHistory);
 }
 // calls the first function to start it all.
 beginQuiz();
