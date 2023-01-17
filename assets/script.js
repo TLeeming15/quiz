@@ -15,15 +15,12 @@ const allQuestions = [
     
     {
         question: "Is Javascript case sensitive?",
-        options: {a: "Yes", 
-            b: "No", 
-            c: "I dont know", 
-            d: "All of the above?",
+        options: {a: "Yes", b: "No", c: "I dont know", d: "All of the above?",
         },
         answer: "a"
     },
     {
-        question: "What are the two levels of scrope that a Javascript variable can have?.",
+        question: "What are the two levels of scope that a Javascript variable can have?.",
         options: { a: "International and Domestic", b: "Indoors and Outdoors", c: "Global and Local", d: "All of the above?",
         },
         answer: "c"
