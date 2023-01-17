@@ -10,7 +10,7 @@ var home = document.querySelector(".home");
 var container = document.querySelector(".container");
 var bottom = document.querySelector(".bottom");
 var outcome = document.querySelector(".outcome");
-
+// List of questions and answers
 const allQuestions = [
     
     {
@@ -48,7 +48,7 @@ const allQuestions = [
     }
    
 ];
-
+// This function begins the Quiz. It is creating elements and inserting and appending text. Also creating buttons.
 function beginQuiz() {
     var removeAll = container;
     while(removeAll.hasChildNodes()) {
@@ -89,7 +89,7 @@ function beginQuiz() {
 
     document.querySelector(".view-score").addEventListener("click", viewHighScore);
 }
-
+// This renders the quiz questions and buttons, and loops through the available question.
 function renderQuiz(){
     var removeAll = container;
     while (removeAll.hasChildNodes()){
@@ -124,6 +124,7 @@ function renderQuiz(){
         document.querySelector(".quiz").addEventListener("click", checkOutcome);
         
     }
+    // Ends the quiz, reveals the score, which is the time left. Creates the high scores form.
     else {
         clearInterval(timerInterval);
         var done = document.createElement("h2");
@@ -133,7 +134,7 @@ function renderQuiz(){
 
         var sum = document.createElement("p");
         sum.classList.add("text");
-        sum.textContent = "Your final score is " + mark + " !";
+        sum.textContent = "Your final score is " + timeLeft + " !";
         container.appendChild(sum);
 
         var form = document.createElement("form");
@@ -163,7 +164,7 @@ function renderQuiz(){
     }
 }
 
-
+// This is the timer function.
 function timer () {
     
 
@@ -173,13 +174,9 @@ function timer () {
        timeEl.textContent = timeLeft + "s";
        timeLeft--;
 
-       
-
        if (timeLeft < 0 ) {
 
            clearInterval(timerInterval);
-
-       
 
            index += allQuestions.length;
 
@@ -189,7 +186,7 @@ function timer () {
 
    renderQuiz();
 }
-
+// Checks if the answer is correct or incorrect and displays such on the screen. This function subtracts ten from the timer/score if incorrect.
 function checkOutcome(event){
 
     var targetEl = event.target;
@@ -200,7 +197,7 @@ function checkOutcome(event){
         check.textContent = "Correct!";
        
     } else {
-        check.textContent = "Wrong!";
+        check.textContent = "Incorrect!";
         timeLeft -= 10;
     }
     outcome.appendChild(check);
@@ -212,35 +209,34 @@ function checkOutcome(event){
     }, 1000);
 }
 
-function viewHighScore(){
-    top.style.border= "none";
-    var removeTop = top;
-    while (removeTop.hasChildNodes()){
-        removeTop.removeChild(removeTop.firstChild);
-    }
-    var removeQuiz = container;
-    while (removeQuiz.hasChildNodes()){
-        removeQuiz.removeChild(removeQuiz.firstChild);
-    }
-    var highScoresHead = document.createElement("h1");
-    highScoresHead.classList.add("quizQuest");
-    highScoresHead.textContent = "High Scores";
-    container.appendChild(highScoresHead);
+// function viewHighScore(){
+//     var removeTop = top;
+//     while (removeTop.hasChildNodes()){
+//         removeTop.removeChild(removeTop.firstChild);
+//     }
+//     var removeQuiz = container;
+//     while (removeQuiz.hasChildNodes()){
+//         removeQuiz.removeChild(removeQuiz.firstChild);
+//     }
+//     var highScoresHead = document.createElement("h1");
+//     highScoresHead.classList.add("quizQuest");
+//     highScoresHead.textContent = "High Scores";
+//     container.appendChild(highScoresHead);
 
-    loadData();
+//     loadData();
 
-    var goBack = document.createElement("button");
-    goBack.classList.add("btn", "btn-goBack");
-    goBack.textContent = "Go Back";
-    container.appendChild(goBack);
+//     var goBack = document.createElement("button");
+//     goBack.classList.add("btn", "btn-goBack");
+//     goBack.textContent = "Go Back";
+//     container.appendChild(goBack);
 
-    var clear = document.createElement("button");
-    clear.classList.add("btn", "btn-clear");
-    clear.textContent = "Clear High Scores";
-    container.appendChild(clear);
+//     var clear = document.createElement("button");
+//     clear.classList.add("btn", "btn-clear");
+//     clear.textContent = "Clear High Scores";
+//     container.appendChild(clear);
 
-    document.querySelector(".btn-goBack").addEventListener("click", start);
-    document.querySelector(".btn-clear").addEventListener("click", clearHistory);
+//     document.querySelector(".btn-goBack").addEventListener("click", start);
+//     document.querySelector(".btn-clear").addEventListener("click", clearHistory);
 }
-
+// calls the first function to start it all.
 beginQuiz();
