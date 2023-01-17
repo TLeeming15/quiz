@@ -11,6 +11,44 @@ var container = document.querySelector(".container");
 var bottom = document.querySelector(".bottom");
 var outcome = document.querySelector(".outcome");
 
+const allQuestions = [
+    
+    {
+        question: "Is Javascript case sensitive?",
+        options: {a: "Yes", 
+            b: "No", 
+            c: "I dont know", 
+            d: "All of the above?",
+        },
+        answer: "a"
+    },
+    {
+        question: "What are the two levels of scrope that a Javascript variable can have?.",
+        options: { a: "International and Domestic", b: "Indoors and Outdoors", c: "Global and Local", d: "All of the above?",
+        },
+        answer: "c"
+    },
+    {
+        question: "What are the three ways you can declare a variable in Javascript?",
+        options: { a: "cars, trains and automobiles", b: "var, const and let", c: "Larry, Moe and Curly", d: "All of the above?",
+        },
+        answer: "b"
+    },
+    {
+        question: "What does NaN mean in Javascript?",
+        options: { a: "Not a Number", b: "Short for Grandmother", c: "Not a Newfoundlander", d: "All of the above?",
+        },
+        answer: "a"
+    },
+    {
+        question: "Which company developed Javascript?",
+        options: { a: "Netscape", b: "Mcdonalds", c: "Wal-Mart", d: "All of the above?",            
+        },
+        answer: "a"
+    }
+   
+];
+
 function beginQuiz() {
     var removeAll = container;
     while(removeAll.hasChildNodes()) {
@@ -165,7 +203,7 @@ function checkOutcome(event){
         check.textContent = "Wrong!";
         timeLeft -= 10;
     }
-    // outcome.appendChild(check);
+    outcome.appendChild(check);
     
 
     setTimeout(() => {
