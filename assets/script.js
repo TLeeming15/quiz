@@ -152,4 +152,57 @@ function timer () {
    renderQuiz();
 }
 
+function checkOutcome(event){
+
+    var targetEl = event.target;
+    console.log("testing");
+    var check = document.createElement("p");
+    check.classList.add("check-outcome");
+    if (targetEl.hasAttribute("check")) {
+        check.textContent = "Correct!";
+       
+    } else {
+        check.textContent = "Wrong!";
+        timeLeft -= 10;
+    }
+    // outcome.appendChild(check);
+    
+
+    setTimeout(() => {
+        check.remove();
+        renderQuiz();
+    }, 1000);
+}
+
+function viewHighScore(){
+    top.style.border= "none";
+    var removeTop = top;
+    while (removeTop.hasChildNodes()){
+        removeTop.removeChild(removeTop.firstChild);
+    }
+    var removeQuiz = container;
+    while (removeQuiz.hasChildNodes()){
+        removeQuiz.removeChild(removeQuiz.firstChild);
+    }
+    var highScoresHead = document.createElement("h1");
+    highScoresHead.classList.add("quizQuest");
+    highScoresHead.textContent = "High Scores";
+    container.appendChild(highScoresHead);
+
+    loadData();
+
+    var goBack = document.createElement("button");
+    goBack.classList.add("btn", "btn-goBack");
+    goBack.textContent = "Go Back";
+    container.appendChild(goBack);
+
+    var clear = document.createElement("button");
+    clear.classList.add("btn", "btn-clear");
+    clear.textContent = "Clear High Scores";
+    container.appendChild(clear);
+
+    document.querySelector(".btn-goBack").addEventListener("click", start);
+    document.querySelector(".btn-clear").addEventListener("click", clearHistory);
+}
+
 beginQuiz();
