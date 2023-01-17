@@ -125,4 +125,31 @@ function renderQuiz(){
     }
 }
 
+
+function timer () {
+    
+
+    timerInterval = setInterval(function() {
+
+       var timeEl = document.querySelector("#second");
+       timeEl.textContent = timeLeft + "s";
+       timeLeft--;
+
+       
+
+       if (timeLeft < 0 ) {
+
+           clearInterval(timerInterval);
+
+       
+
+           index += allQuestions.length;
+
+           renderQuiz();
+       }
+   }, 1000);
+
+   renderQuiz();
+}
+
 beginQuiz();
